@@ -43,8 +43,8 @@ const experiences: Experience[] = [
         achievements: [
             "Designed and implemented a complete new user system (\"influencers\"), including frontend flows, backend logic and relational database updates",
             "Built key business features including Stripe subscriptions, metrics paywall systems and real-time chat/file management using Socket.io",
-            "Expanded platform capabilities through third-party API integrations with Instagram and TikTok, supporting a 2x increase in users",
             "Led technical coordination across the development team, including code reviews, task definition, feature planning and onboarding documentation in YouTrack",
+            "Expanded platform capabilities through third-party API integrations with Instagram and TikTok, supporting a 2x increase in users",
         ],
     },
     {
@@ -85,7 +85,7 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-    { label: "Years Experience", value: "5+" },
+    { label: "Years Experience", value: "1.5+" },
     { label: "Companies", value: "3" },
     { label: "Certifications", value: "2" },
 ]
