@@ -40,9 +40,9 @@ export default function Home() {
                     <Work onInView={handleInView("work")} />
                 </div>
 
-                <div ref={(el) => { sectionsRef.current.about = el }}>
+                {/* <div ref={(el) => { sectionsRef.current.about = el }}>
                     <About onInView={handleInView("about")} />
-                </div>
+                </div> */}
 
                 <div ref={(el) => { sectionsRef.current.cv = el }}>
                     <CV onInView={handleInView("cv")} />

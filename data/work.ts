@@ -25,7 +25,7 @@ export const work: WorkInterface[] = [
         tagline: "Professional aesthetic medicine clinic website",
         status: "DEPLOYED",
         statusColor: "text-nx-green",
-        description: "Multilingual aesthetic medicine platform for Vivage clinic in Portimão, Portugal. Built with modern Next.js architecture and PostgreSQL database backend, featuring multi-dimensional content organization, real-time patient engagement tools, and comprehensive compliance frameworks.",
+        description: "Solo-developed and architected a bilingual corporate website for Vivage, an aesthetic medicine clinic located in Portugal. Engineered a scalable Next.js application with advanced rendering strategies and complex data models supporting dual-classification treatment systems. Built comprehensive patient engagement tools with real-time communication, form processing with anti-spam protection, and GDPR-compliant compliance frameworks including cookie auditing and SEO optimization.",
         features: [
             "Dynamic rendering architecture enabling 30+ content-rich pages with server-side generation and incremental static regeneration",
             "Bilingual i18n system with language-specific content dictionaries",
@@ -39,8 +39,17 @@ export const work: WorkInterface[] = [
             "Google Analytics and Search Console integration ready",
             "Legal compliance with privacy policy, cookie policy, and medical disclaimer",
         ],
-        impact: "Increased patient engagement and appointment requests, improved online visibility, and enhanced brand credibility.",
-        tech: ["Next.js", "React", "TypeScript", "Tailwind", "PostgreSQL", "Node.js", "Resend", "Render.com"],
+        impact: "Increased patient engagement and appointment requests, improved online visibility, and enhanced brand credibility",
+        tech: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind",
+            "Node.js",
+            "PostgreSQL",
+            "Resend",
+            "Render.com"
+        ],
         image: "/images/vivage.jpg",
         logo: "/images/logos/vivage.png",
         liveUrl: "https://vivage.pt/en",
@@ -51,19 +60,23 @@ export const work: WorkInterface[] = [
         name: "FILMER",
         tagline: "Full-stack platform connecting brands with content creators",
         description:
-            "Worked as a Full-Stack Developer on Filmer's web platform, contributing directly to the development of a marketplace that connects brands with UGC creators and influencers. Developed frontend and backend features across creator profiles, dashboards, subscriptions, payments, real-time chat, multimedia content management, and social media integrations. Also contributed to database design, technical planning, team coordination, developer onboarding, and production deployments.",
+            "Worked as a Full-Stack Developer on Filmer, a Spanish SaaS platform and marketplace connecting brands with UGC creators and influencers. Contributed directly to developing core product features across creator profiles, dashboards, subscriptions, payments, real-time chat, multimedia content management, and social media integrations. Developed frontend and backend functionality, contributed to database architecture and technical planning, and supported team coordination, developer onboarding, and production deployments.",
         impact: "Delivered core product features, improved creator workflows and public profiles, contributed to the subscription system, real-time communication, multimedia uploads, and helped coordinate and onboard new developers",
         tech: [
             "React",
             "TypeScript",
+            "Tailwind",
             "Node.js",
-            "Express",
+            "Express.js",
             "PostgreSQL",
-            "Stripe",
+            "Figma",
             "Git",
-            "REST APIs",
+            "Stripe",
             "Instagram API",
-            "Cloud Services"
+            "TikTok API",
+            "Render.com",
+            "Supabase",
+            "Google Cloud Platform",
         ],
         status: "DEPLOYED",
         statusColor: "text-nx-green",
@@ -73,9 +86,11 @@ export const work: WorkInterface[] = [
             "Built and improved real-time chat, file uploads, multimedia content management, compression, and file format handling",
             "Contributed to the modelling and implementation of creator subscriptions, payments, database structures, and backend logic",
             "Modified PostgreSQL database schemas and adapted backend services to new product requirements",
-            "Integrated external services including Stripe payments and Instagram/social media APIs",
+            "Integrated external services including Stripe payments and social media APIs",
+            "Conducted security audits and performance optimization reviews, identifying vulnerabilities and implementing improvements across frontend and backend systems",
             "Participated in the research and technical modelling of an AI-powered creator recommendation system",
             "Deployed and configured frontend and backend testing environments",
+            "Actively contributed to strategic planning meetings, providing architectural recommendations and aligning technical decisions with company product roadmap and business objectives",
             "Organized development workflows, planned tasks and sprints, reviewed code, and managed merges",
             "Supported and onboarded new developers by helping configure their development environments and resolving technical questions"
         ],
@@ -85,14 +100,3 @@ export const work: WorkInterface[] = [
         sourceUrl: "",
     },
 ]
-
-/* 
-FEATURES
-▹ Drag-and-drop visual workflow editor
-▹ AI-powered task suggestions via OpenAI
-▹ 30+ third-party service integrations
-▹ Real-time execution monitoring dashboard
-
-◈ IMPACT
-200+ workflows automated, ~15hrs/week saved per team
-*/
