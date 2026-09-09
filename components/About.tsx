@@ -1,36 +1,75 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import Image from "next/image"
+import { useEffect, useRef } from "react"
+import { motion, useInView } from "framer-motion"
 
-interface AboutSectionProps {
-    onInView: () => void;
-}
+import lucas from "@/public/images/lucas.png"
 
-const skills = [
-    { name: "React / Next.js", level: 85, category: "frontend" },
-    { name: "Node.js / Express", level: 90, category: "backend" },
-    { name: "TypeScript", level: 85, category: "language" },
-    { name: "Python / FastAPI", level: 75, category: "backend" },
-    { name: "PostgreSQL / Redis", level: 80, category: "data" },
-    { name: "Docker / CI-CD", level: 70, category: "devops" },
-    { name: "AI Integration", level: 90, category: "special" },
-    { name: "System Design", level: 80, category: "special" },
-];
+const focusAreas = ["WEB", "FULLSTACK", "BACKEND", "CLOUD", "AI"]
 
-const techGrid = [
-    "React", "Next.js", "Node.js", "TypeScript",
-    "Python", "PostgreSQL", "Redis", "Docker",
-    "AWS", "Git", "FastAPI", "OpenAI",
-];
+const timeline = [
+    {
+        year: "ORIGIN",
+        title: "Aerospace Engineering",
+        description: "Discovered programming while studying aerospace systems, and curiosity took over from there.",
+    },
+    {
+        year: "TRAINING",
+        title: "Web Application Development (DAW)",
+        description: "Formal training building complete, production-ready web applications with modern practices.",
+    },
+    {
+        year: "TODAY",
+        title: "Full-Stack Engineer",
+        description: "Engineering scalable, secure, maintainable solutions end-to-end, with AI-assisted velocity.",
+    },
+]
 
-export default function About({ onInView }: AboutSectionProps) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { amount: 0.2 });
+const competencies = [
+    {
+        category: "Software",
+        items: ["Full-stack development", "Software architecture", "End-to-end features", "Scalability", "Security", "Performance optimisation"],
+    },
+    {
+        category: "Frontend",
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "CSS", "Tailwind CSS", "Sass", "Responsive design", "SEO", "UI/UX"],
+    },
+    {
+        category: "Backend",
+        items: ["Node.js", "Express.js", "REST APIs", "Business logic", "Auth & authorisation", "WebSockets", "Caching"],
+    },
+    {
+        category: "APIs & Integrations",
+        items: ["Third-party integrations", "Stripe", "Payment systems", "Instagram", "TikTok", "OpenAI", "Gemini"],
+    },
+    {
+        category: "Databases & Data",
+        items: ["PostgreSQL", "MySQL", "Relational modelling", "Database design", "Query optimisation", "Data persistence"],
+    },
+    {
+        category: "Cloud & DevOps",
+        items: ["Microsoft Azure", "Google Cloud", "Docker", "Linux", "Render", "Vercel", "CI/CD", "GitHub Actions", "Deployment"],
+    },
+    {
+        category: "Engineering Practices",
+        items: ["Git & GitHub", "Agile / Scrum", "Version control", "Feature planning", "Technical docs", "AI-assisted development"],
+    },
+    {
+        category: "Collaboration & Leadership",
+        items: ["Technical coordination", "Developer onboarding", "Cross-team collaboration", "Code reviews", "YouTrack", "Figma"],
+    },
+]
+
+export default function About({ onInView }: {
+    onInView: () => void
+}) {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { amount: 0.2 })
 
     useEffect(() => {
-        if (isInView) onInView();
-    }, [isInView, onInView]);
+        if (isInView) onInView()
+    }, [isInView, onInView])
 
     return (
         <section
@@ -52,203 +91,168 @@ export default function About({ onInView }: AboutSectionProps) {
                             ABOUT ME
                         </span>
                     </div>
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-nx-text tracking-tight">
-                        LUCAS GONTIJO
+                    <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-nx-text tracking-tight wrap-break-word">
+                        LUCAS GONTIJO GUIMARÃES
                     </h2>
                     <p className="font-mono text-sm text-nx-text-secondary mt-3">
-                        Operative profile and technical capabilities.
+                        Operative profile, thoughtful engineer and full-stack expertise.
                     </p>
                 </motion.div>
 
-                {/* Grid layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {/* Profile card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="glass-panel rounded-xl p-6"
-                    >
-                        <div className="flex items-center gap-2 mb-6 pb-3 border-b border-nx-border">
-                            <div className="w-1.5 h-1.5 bg-nx-cyan rounded-full" />
-                            <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">OPERATIVE STATUS</span>
-                        </div>
-
-                        {/* Avatar area */}
-                        <div className="relative w-20 h-20 mx-auto mb-6">
-                            <div className="absolute inset-0 rounded-full border border-nx-cyan/20" />
-                            <div className="absolute inset-1 rounded-full border border-nx-cyan/10" />
-                            <div className="absolute inset-0 rounded-full bg-linear-to-br from-nx-cyan/10 to-nx-surface flex items-center justify-center">
-                                <svg width="32" height="32" viewBox="0 0 24 24" className="text-nx-cyan/40">
-                                    <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                                    <path d="M4 20c0-4 3.5-7 8-7s8 3 8 7" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                                </svg>
-                            </div>
-                            {/* Pulse rings */}
-                            <div className="absolute inset-0 rounded-full border border-nx-cyan/20 pulse-ring" />
-                            <div className="absolute inset-0 rounded-full border border-nx-cyan/10 pulse-ring-delay" />
-                        </div>
-
-                        <div className="space-y-3">
-                            {[
-                                { label: "NAME", value: "LUCAS", accent: false },
-                                { label: "CLASS", value: "FULLSTACK DEV", accent: false },
-                                { label: "FORMATION", value: "DAW", accent: false },
-                                { label: "FOCUS", value: "BACKEND & AI", accent: true },
-                            ].map((item) => (
-                                <div key={item.label} className="flex justify-between items-center">
-                                    <span className="font-mono text-[10px] text-nx-text-muted tracking-wider">{item.label}</span>
-                                    <span className={`font-mono text-xs ${item.accent ? "text-nx-cyan" : "text-nx-text"}`}>{item.value}</span>
-                                </div>
-                            ))}
-                            <div className="flex justify-between items-center">
-                                <span className="font-mono text-[10px] text-nx-text-muted tracking-wider">STATUS</span>
-                                <span className="font-mono text-xs text-nx-green flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-nx-green rounded-full animate-pulse" />
-                                    ACTIVE
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Availability */}
-                        <div className="mt-6 pt-4 border-t border-nx-border">
-                            <div className="flex items-center justify-between mb-2">
-                                <span className="font-mono text-[10px] text-nx-green tracking-wider">AVAILABILITY</span>
-                                <span className="font-mono text-[9px] text-nx-text-muted">OPEN TO WORK</span>
-                            </div>
-                            <div className="h-1.5 bg-nx-elevated rounded-full overflow-hidden">
-                                <motion.div
-                                    className="h-full bg-linear-to-r from-nx-green/60 to-nx-green rounded-full"
-                                    initial={{ width: 0 }}
-                                    whileInView={{ width: "100%" }}
-                                    transition={{ duration: 1.5, ease: "easeOut" }}
-                                    viewport={{ once: true }}
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Background / Bio */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="glass-panel rounded-xl p-6"
-                    >
-                        <div className="flex items-center gap-2 mb-6 pb-3 border-b border-nx-border">
-                            <div className="w-1.5 h-1.5 bg-nx-cyan rounded-full" />
-                            <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">BACKGROUND</span>
-                        </div>
-
-                        <div className="space-y-4 text-sm text-nx-text-secondary leading-relaxed">
-                            <p>
-                                Developer trained in{" "}
-                                <span className="text-nx-text">Web Application Development (DAW)</span>{" "}
-                                with hands-on experience building{" "}
-                                <span className="text-nx-text">complete, production-ready applications</span>.
-                            </p>
-                            <p>
-                                My focus is on{" "}
-                                <span className="text-nx-cyan">solid backend architecture</span>,
-                                clean code practices, and leveraging{" "}
-                                <span className="text-nx-cyan">AI tools to maximize development velocity</span>.
-                            </p>
-                            <p>
-                                I don&apos;t just write code &mdash; I{" "}
-                                <span className="text-nx-text">engineer solutions</span>. Every project is
-                                built with scalability, security, and maintainability as first-class priorities.
-                            </p>
-                        </div>
-
-                        {/* Quote */}
-                        <div className="mt-6 p-4 rounded-lg bg-nx-cyan/5 border-l-2 border-nx-cyan/30">
-                            <p className="font-mono text-xs text-nx-text-muted italic">
-                                &ldquo;This developer could ship production code tomorrow.&rdquo;
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Equipment grid */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="glass-panel rounded-xl p-6 md:col-span-2 lg:col-span-1"
-                    >
-                        <div className="flex items-center gap-2 mb-6 pb-3 border-b border-nx-border">
-                            <div className="w-1.5 h-1.5 bg-nx-cyan rounded-full" />
-                            <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">EQUIPMENT</span>
-                        </div>
-
-                        <div className="grid grid-cols-3 gap-2">
-                            {techGrid.map((item, i) => (
-                                <motion.div
-                                    key={item}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.35 + i * 0.04 }}
-                                    className="group relative aspect-square rounded-lg border border-nx-border bg-nx-surface/30
-                    flex items-center justify-center p-2 hover:border-nx-cyan/30 hover:bg-nx-cyan/5
-                    transition-all duration-300 cursor-default"
-                                >
-                                    <span className="font-mono text-[10px] text-nx-text-secondary text-center
-                    group-hover:text-nx-cyan transition-colors duration-300">
-                                        {item}
-                                    </span>
-                                    {/* Corner accent on hover */}
-                                    <div className="absolute top-0 right-0 w-0 h-0 border-t border-r border-transparent
-                    group-hover:w-3 group-hover:h-3 group-hover:border-nx-cyan/40 transition-all duration-300" />
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Skill bars — full width */}
+                {/* Profile */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                    className="mt-5 glass-panel rounded-xl p-6"
+                    transition={{ delay: 0.1 }}
+                    className="glass-panel rounded-xl p-6 sm:p-8"
+                >
+                    <div className="flex flex-col items-center sm:flex-row sm:items-center gap-5 pb-6 border-b border-nx-border">
+                        {/* Avatar */}
+                        <div className="relative w-16 h-16 shrink-0">
+                            <div className="absolute inset-0 rounded-full border border-nx-cyan/20 overflow-hidden">
+                                <Image src={lucas} alt="Lucas Gontijo Guimarães" fill sizes="64px" className="object-cover" />
+                            </div>
+                            <div className="absolute inset-0 rounded-full border border-nx-cyan/20 pulse-ring" />
+                        </div>
+
+                        <div>
+                            <div className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 bg-nx-green rounded-full animate-pulse" />
+                                <span className="font-mono text-[10px] text-nx-green tracking-[0.2em]">OPEN TO WORK</span>
+                            </div>
+                            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mt-1.5 font-mono text-xs text-nx-text-secondary">
+                                <span className="text-nx-text">SEVILLE, SPAIN</span>
+                            </div>
+                        </div>
+
+                        {/* Focus areas */}
+                        <div className="flex flex-wrap gap-1.5 sm:ml-auto">
+                            {focusAreas.map((area) => (
+                                <span
+                                    key={area}
+                                    className="font-mono text-[9px] tracking-wider text-nx-cyan px-2 py-1 rounded-full border border-nx-cyan/25 bg-nx-cyan/5"
+                                >
+                                    {area}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-6">
+                        {/* Bio */}
+                        <div className="lg:col-span-2 space-y-3 text-sm text-nx-text-secondary leading-relaxed">
+                            <p>
+                                I'm a
+                                <span className="text-nx-text"> full-stack engineer </span>
+                                who delivers features end-to-end &mdash; across modern
+                                <span className="text-nx-cyan"> frontend, backend, and cloud infrastructure</span>,
+                                with integrated
+                                <span className="text-nx-cyan"> AI and third-party systems</span>,
+                                contributing at an engineering / technical-lead level.
+                            </p>
+                            <p>
+                                I engineer solutions from idea to deployment, keeping
+                                <span className="text-nx-text"> scalability, security, performance, maintainability, and UX </span>
+                                in mind, and I continuously update my skills across the web stack.
+                            </p>
+                            <p>
+                                Currently open to new
+                                <span className="text-nx-text"> career growth opportunities</span>.
+                            </p>
+                        </div>
+
+                        {/* Quote */}
+                        <div className="p-4 rounded-lg bg-nx-cyan/5 border-l-2 border-nx-cyan/30 h-fit">
+                            <p className="font-mono text-xs text-nx-text-secondary italic">
+                                &ldquo;I craft robust, maintainable systems with meticulous attention to quality.&rdquo;
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Background */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="mt-5 glass-panel rounded-xl p-6 sm:p-8"
                 >
                     <div className="flex items-center gap-2 mb-6 pb-3 border-b border-nx-border">
                         <div className="w-1.5 h-1.5 bg-nx-cyan rounded-full" />
-                        <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">SKILL MATRIX</span>
+                        <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">BACKGROUND</span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
-                        {skills.map((skill, i) => (
-                            <div key={skill.name}>
-                                <div className="flex justify-between mb-2">
-                                    <span className="font-mono text-xs text-nx-text-secondary">{skill.name}</span>
-                                    <span className="font-mono text-[10px] text-nx-cyan">{skill.level}%</span>
-                                </div>
-                                <div className="h-1.5 bg-nx-elevated rounded-full overflow-hidden">
-                                    <motion.div
-                                        className="h-full rounded-full"
-                                        style={{
-                                            background: skill.category === "special"
-                                                ? "linear-gradient(90deg, rgba(0,212,255,0.5), rgba(0,212,255,0.9))"
-                                                : skill.level >= 85
-                                                    ? "linear-gradient(90deg, rgba(0,212,255,0.4), rgba(0,255,136,0.7))"
-                                                    : "linear-gradient(90deg, rgba(0,212,255,0.3), rgba(0,212,255,0.6))",
-                                        }}
-                                        initial={{ width: 0 }}
-                                        whileInView={{ width: `${skill.level}%` }}
-                                        transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut" }}
-                                        viewport={{ once: true }}
-                                    />
-                                </div>
-                            </div>
+                    <p className="text-sm text-nx-text-secondary leading-relaxed max-w-3xl">
+                        My path wasn&apos;t always about code. I started studying
+                        <span className="text-nx-text"> aerospace engineering</span>, fascinated by how software worked. I discovered something more immediate:
+                        <span className="text-nx-text"> programming</span>. That curiosity became an obsession. I shifted gears and pursued formal training in
+                        <span className="text-nx-text"> Web Application Development (DAW)</span>, learning not just to write code, but to
+                        <span className="text-nx-text"> architect solutions</span>. Since then, I&apos;ve built production applications for different purposes.
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+                        {timeline.map((step, i) => (
+                            <motion.div
+                                key={step.title}
+                                initial={{ opacity: 0, y: 15 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.25 + i * 0.1 }}
+                                className="pl-4 border-l border-nx-cyan/20"
+                            >
+                                <span className="font-mono text-[10px] text-nx-cyan tracking-[0.2em]">
+                                    {`0${i + 1} — ${step.year}`}
+                                </span>
+                                <h4 className="text-sm font-semibold text-nx-text mt-2">{step.title}</h4>
+                                <p className="text-xs text-nx-text-secondary leading-relaxed mt-2">{step.description}</p>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>
-            </div>
-        </section>
-    );
+
+                {/* Technical expertise */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="mt-5 glass-panel rounded-xl p-6 sm:p-8"
+                >
+                    <div className="flex items-center gap-2 mb-2 pb-3 border-b border-nx-border">
+                        <div className="w-1.5 h-1.5 bg-nx-cyan rounded-full" />
+                        <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">TECHNICAL EXPERTISE & CORE COMPETENCIES</span>
+                    </div>
+
+                    <div className="divide-y divide-nx-border">
+                        {competencies.map((group, i) => (
+                            <motion.div
+                                key={group.category}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 + i * 0.04 }}
+                                className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 py-4"
+                            >
+                                <span className="font-mono text-[10px] text-nx-cyan tracking-[0.15em] sm:w-44 sm:shrink-0 sm:pt-0.5">
+                                    {group.category.toUpperCase()}
+                                </span>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {group.items.map((item) => (
+                                        <span
+                                            key={item}
+                                            className="font-mono text-[10px] text-nx-text-secondary px-2 py-1 rounded-md border border-nx-border bg-nx-elevated/40"
+                                        >
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+            </div >
+        </section >
+    )
 }
