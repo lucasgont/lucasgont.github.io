@@ -102,7 +102,7 @@ export default function HUD({ activeSection, onNavigate, showHUD = false }: {
                 </div>
 
                 {/* Progress top line - Scroll indicator */}
-                <div className={`absolute z-55 top-16 left-0 right-0 h-8 flex items-center justify-between px-4 sm:px-8 pointer-events-auto`}>
+                <div className={`absolute z-55 top-16 left-0 right-0 h-auto flex items-center justify-between px-4 sm:px-8 pointer-events-auto`}>
                     {/* Scroll progress bar */}
                     <div className="absolute top-0 left-0 right-0 h-px transparent block">
                         <motion.div

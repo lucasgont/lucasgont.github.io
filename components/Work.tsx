@@ -1,7 +1,9 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
+
 import { work } from "@/data/work"
 
 export default function Work({ onInView }: {
@@ -93,11 +95,21 @@ export default function Work({ onInView }: {
                                 {/* Decorative image placeholder */}
                                 <div className="relative h-56 sm:h-72 bg-linear-to-br from-nx-surface to-nx-elevated overflow-hidden">
                                     {/* Project image */}
-                                    <img
-                                        src={project.image}
-                                        alt={project.name}
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                    />
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6 }}
+                                        className="absolute inset-0"
+                                    >
+                                        <Image
+                                            src={project.image}
+                                            alt={project.name}
+                                            fill
+                                            sizes="(max-width: 1024px) 100%, 60%"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </motion.div>
 
                                     {/* Gradient overlay */}
                                     <div className="absolute inset-0 bg-linear-to-t from-nx-surface via-transparent to-transparent" />
@@ -130,8 +142,8 @@ export default function Work({ onInView }: {
 
                                 {/* Company Logo */}
                                 <div className="flex items-center justify-center gap-2 mb-6">
-                                    <div className="w-32 h-22">
-                                        <img src={project.logo} alt={`${project.name} logo`} className="w-full h-full object-contain" />
+                                    <div className="w-32 h-22 relative">
+                                        <Image src={project.logo} alt={`${project.name} logo`} fill sizes="128px" className="w-full h-full object-contain" />
                                     </div>
                                 </div>
 

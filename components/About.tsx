@@ -149,7 +149,7 @@ export default function About({ onInView }: {
                                 <span className="text-nx-cyan"> frontend, backend, and cloud infrastructure</span>,
                                 with integrated
                                 <span className="text-nx-cyan"> AI and third-party systems</span>,
-                                contributing at an engineering / technical-lead level.
+                                providing strategic architectural oversight.
                             </p>
                             <p>
                                 I engineer solutions from idea to deployment, keeping
@@ -184,12 +184,12 @@ export default function About({ onInView }: {
                         <span className="font-mono text-[10px] text-nx-text-muted tracking-[0.2em]">BACKGROUND</span>
                     </div>
 
-                    <p className="text-sm text-nx-text-secondary leading-relaxed max-w-3xl">
-                        My path wasn&apos;t always about code. I started studying
+                    <p className="text-sm text-nx-text-secondary leading-relaxed">
+                        My path wasn't always about code. I started studying
                         <span className="text-nx-text"> aerospace engineering</span>, fascinated by how software worked. I discovered something more immediate:
-                        <span className="text-nx-text"> programming</span>. That curiosity became an obsession. I shifted gears and pursued formal training in
+                        <span className="text-nx-text"> Programming</span>. Driven by curiosity, I shifted gears and pursued formal training in
                         <span className="text-nx-text"> Web Application Development (DAW)</span>, learning not just to write code, but to
-                        <span className="text-nx-text"> architect solutions</span>. Since then, I&apos;ve built production applications for different purposes.
+                        <span className="text-nx-text"> architect solutions</span>. Since then, I've built production applications for different purposes.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
@@ -252,7 +252,7 @@ export default function About({ onInView }: {
                         ))}
                     </div>
                 </motion.div>
-            </div >
-        </section >
+            </div>
+        </section>
     )
 }
