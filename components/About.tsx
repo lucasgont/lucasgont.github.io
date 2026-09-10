@@ -92,7 +92,7 @@ export default function About({ onInView }: {
                         </span>
                     </div>
                     <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-nx-text tracking-tight wrap-break-word">
-                        LUCAS GONTIJO GUIMARÃES
+                        LUCAS GONTIJO
                     </h2>
                     <p className="font-mono text-sm text-nx-text-secondary mt-3">
                         Operative profile, thoughtful engineer and full-stack expertise.
@@ -111,7 +111,7 @@ export default function About({ onInView }: {
                         {/* Avatar */}
                         <div className="relative w-16 h-16 shrink-0">
                             <div className="absolute inset-0 rounded-full border border-nx-cyan/20 overflow-hidden">
-                                <Image src={lucas} alt="Lucas Gontijo Guimarães" fill sizes="64px" className="object-cover" />
+                                <Image src={lucas} alt="Lucas Gontijo" fill sizes="64px" className="object-cover" />
                             </div>
                             <div className="absolute inset-0 rounded-full border border-nx-cyan/20 pulse-ring" />
                         </div>
@@ -165,7 +165,7 @@ export default function About({ onInView }: {
                         {/* Quote */}
                         <div className="p-4 rounded-lg bg-nx-cyan/5 border-l-2 border-nx-cyan/30 h-fit">
                             <p className="font-mono text-xs text-nx-text-secondary italic">
-                                &ldquo;I craft robust, maintainable systems with meticulous attention to quality.&rdquo;
+                                &ldquo;Experienced in developing robust, maintainable systems with a strong focus on software quality, performance, security, and scalability.&rdquo;
                             </p>
                         </div>
                     </div>
