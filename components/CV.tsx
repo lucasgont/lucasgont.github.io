@@ -68,17 +68,17 @@ const education: Education[] = [
         url: "https://learn.microsoft.com/es-es/users/lucasdevilagontijoguimares-6335/credentials/b94fdca1cd5a1883",
     },
     {
+        degree: "Higher Technician in Web Application Development (DAW)",
+        institution: "FESAC, Seville, Spain",
+        year: "Sep 2024 - Apr 2026",
+        details: "Full-stack web development including frontend technologies, backend architecture, databases, and deployment practices.",
+    },
+    {
         degree: "Network Fundamentals Course (TCP/IP)",
         institution: "OpenWebinars",
         year: "Issued Feb 2025",
         details: "Comprehensive understanding of TCP/IP protocols, network architecture, and data transmission fundamentals.",
         url: "https://openwebinars.net/cert/Cd9I",
-    },
-    {
-        degree: "Higher Technician in Web Application Development (DAW)",
-        institution: "FESAC, Seville, Spain",
-        year: "Sep 2024 - Apr 2026",
-        details: "Full-stack web development including frontend technologies, backend architecture, databases, and deployment practices.",
     },
 ]
 
