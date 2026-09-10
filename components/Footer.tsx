@@ -9,7 +9,7 @@ export default function Footer() {
                         </svg>
                     </div>
                     <span className="font-mono text-[10px] text-nx-text-secondary/80 tracking-[0.2em]">
-                        &copy; 2026 LUCAS GONTIJO — PORTFOLIO
+                        &copy; {new Date().getFullYear()} LUCAS GONTIJO — PORTFOLIO
                     </span>
                 </div>
                 <span className="font-mono text-[10px] text-nx-text-secondary/80 tracking-wider">
