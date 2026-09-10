@@ -16,6 +16,7 @@ interface Education {
     institution: string
     year: string
     details: string
+    url?: string
 }
 
 interface Language {
@@ -63,13 +64,21 @@ const education: Education[] = [
         degree: "Microsoft Certified: Azure Fundamentals (AZ-900)",
         institution: "Microsoft",
         year: "Issued May 2026",
-        details: "",
+        details: "Cloud computing fundamentals including Azure services, pricing models, and infrastructure management.",
+        url: "https://learn.microsoft.com/es-es/users/lucasdevilagontijoguimares-6335/credentials/b94fdca1cd5a1883",
+    },
+    {
+        degree: "Network Fundamentals Course (TCP/IP)",
+        institution: "OpenWebinars",
+        year: "Issued Feb 2025",
+        details: "Comprehensive understanding of TCP/IP protocols, network architecture, and data transmission fundamentals.",
+        url: "https://openwebinars.net/cert/Cd9I",
     },
     {
         degree: "Higher Technician in Web Application Development (DAW)",
         institution: "FESAC, Seville, Spain",
         year: "Sep 2024 - Apr 2026",
-        details: "",
+        details: "Full-stack web development including frontend technologies, backend architecture, databases, and deployment practices.",
     },
 ]
 
@@ -87,7 +96,7 @@ interface Stat {
 const stats: Stat[] = [
     { label: "Years Experience", value: "1.5+" },
     { label: "Companies", value: "3" },
-    { label: "Certifications", value: "2" },
+    { label: "Certifications", value: "3" },
 ]
 
 const containerVariants = {
@@ -151,9 +160,12 @@ export default function CV({ onInView }: {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block mt-6 py-2 sm:py-3 px-4 sm:px-6 rounded-lg bg-nx-cyan/10 hover:bg-nx-cyan/20 border border-nx-cyan/40 hover:border-nx-cyan text-nx-cyan font-mono text-xs sm:text-sm transition-all"
+                        className="inline-flex items-center gap-2 mt-6 py-2 sm:py-3 px-4 sm:px-6 rounded-lg bg-nx-cyan/10 hover:bg-nx-cyan/20 border border-nx-cyan/40 hover:border-nx-cyan text-nx-cyan font-mono text-xs sm:text-sm transition-all"
                     >
                         DOWNLOAD CV
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
                     </motion.a>
                 </motion.div>
 
@@ -215,15 +227,57 @@ export default function CV({ onInView }: {
 
                                 <div className="space-y-6">
                                     {education.map((edu, index) => (
-                                        <div
-                                            key={index}
-                                            className="p-4 rounded-lg border border-nx-cyan/20 bg-nx-bg-secondary hover:bg-nx-bg/50 transition-colors"
-                                        >
-                                            <h4 className="font-semibold text-nx-text text-xs sm:text-sm mb-1">
-                                                {edu.degree}
-                                            </h4>
-                                            <p className="text-[11px] sm:text-xs text-nx-cyan/80 font-mono">{edu.institution}</p>
-                                            <p className="text-[11px] sm:text-xs text-nx-text-secondary/70 mt-1">{edu.year}</p>
+                                        edu.url ? (
+                                            <a
+                                                key={index}
+                                                href={edu.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="p-4 rounded-lg border border-nx-cyan/20 bg-nx-bg-secondary hover:bg-nx-bg/50 hover:border-nx-cyan/50 transition-colors cursor-pointer block group"
+                                            >
+                                                <div className="flex items-start justify-between gap-3">
+                                                    <h4 className="font-semibold text-nx-text text-xs sm:text-sm mb-1 flex-1 group-hover:text-nx-cyan transition-colors">
+                                                        {edu.degree}
+                                                    </h4>
+                                                    <svg className="w-4 h-4 text-nx-cyan/60 group-hover:text-nx-cyan transition-colors shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                    </svg>
+                                                </div>
+                                                <p className="text-[10px] sm:text-xs text-nx-cyan/80 font-mono">{edu.institution}</p>
+                                                <p className="text-[10px] sm:text-xs text-nx-text-secondary/70 mt-1">{edu.year}</p>
+                                                <p className="text-[10px] sm:text-xs text-nx-text-secondary/70 mt-2">{edu.details}</p>
+                                            </a>
+                                        ) : (
+                                            <div
+                                                key={index}
+                                                className="p-4 rounded-lg border border-nx-cyan/20 bg-nx-bg-secondary hover:bg-nx-bg/50 transition-colors"
+                                            >
+                                                <h4 className="font-semibold text-nx-text text-xs sm:text-sm mb-1">
+                                                    {edu.degree}
+                                                </h4>
+                                                <p className="text-[10px] sm:text-xs text-nx-cyan/80 font-mono">{edu.institution}</p>
+                                                <p className="text-[10px] sm:text-xs text-nx-text-secondary/70 mt-1">{edu.year}</p>
+                                                <p className="text-[10px] sm:text-xs text-nx-text-secondary/70 mt-2">{edu.details}</p>
+                                            </div>
+                                        )
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Quick Stats */}
+                            <div>
+                                <h3 className="text-base sm:text-lg font-semibold text-nx-cyan mb-6 flex items-center gap-2">
+                                    <span className="text-nx-cyan/60">▸▸</span>
+                                    STATS
+                                </h3>
+
+                                <div className="grid grid-cols-3 gap-2">
+                                    {stats.map((stat, index) => (
+                                        <div key={index} className="p-2 rounded-lg border border-nx-cyan/20 bg-nx-bg-secondary text-center">
+                                            <p className="text-[10px] text-nx-text-secondary/70 uppercase tracking-wide">
+                                                {stat.label}
+                                            </p>
+                                            <p className="text-xl font-bold text-nx-cyan mt-1">{stat.value}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -249,24 +303,6 @@ export default function CV({ onInView }: {
                                 </div>
                             </div>
 
-                            {/* Quick Stats */}
-                            <div>
-                                <h3 className="text-base sm:text-lg font-semibold text-nx-cyan mb-6 flex items-center gap-2">
-                                    <span className="text-nx-cyan/60">▸▸</span>
-                                    STATS
-                                </h3>
-
-                                <div className="grid grid-cols-3 gap-3 sm:space-y-3 sm:grid-cols-1">
-                                    {stats.map((stat, index) => (
-                                        <div key={index} className="p-3 rounded-lg border border-nx-cyan/20 bg-nx-bg-secondary">
-                                            <p className="text-center sm:text-left text-[10px] sm:text-xs text-nx-text-secondary/70 uppercase tracking-wider">
-                                                {stat.label}
-                                            </p>
-                                            <p className="text-center sm:text-left text-xl sm:text-2xl font-bold text-nx-cyan mt-1">{stat.value}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
                 </div>
